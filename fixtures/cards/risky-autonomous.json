@@ -1,0 +1,14 @@
+{
+  "agent_card_version": "0.1",
+  "agent": { "id": "reckless", "name": "Reckless Agent", "version": "0.1.0", "provider": "kg", "description": "Demo agent — autonomous, missing IRU." },
+  "capabilities": {
+    "primary_purpose": "Demo",
+    "models_used": [{ "model": "gpt-4o" }],
+    "tools": [{ "name": "send-email", "side_effects": "external" }, { "name": "drop-db", "side_effects": "destructive" }],
+    "max_context_tokens": 64000,
+    "memory_persistence": "persistent",
+    "autonomy_level": "autonomous"
+  },
+  "deployment": { "environment": "production" },
+  "safety_posture": {}
+}

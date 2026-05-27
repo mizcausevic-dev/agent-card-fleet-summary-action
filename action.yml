@@ -1,0 +1,37 @@
+name: "Agent Card Fleet Summary"
+description: "Walk a directory of A2A AgentCards, count by autonomy / memory, surface governance gaps (autonomous-without-IRU, destructive-tool-on-non-autonomous, persistent-memory-without-refusal-taxonomy, etc.), post a Markdown summary as a PR comment, and fail the build when high-severity findings exist."
+author: "mizcausevic-dev"
+branding:
+  icon: "shield"
+  color: "purple"
+
+inputs:
+  cards-dir:
+    description: "Directory containing *.json AgentCard documents."
+    required: true
+  comment-on-pr:
+    description: "Post the Markdown summary as a PR comment. 'auto' (default) posts only on pull_request events; 'true' / 'false' force the behavior."
+    required: false
+    default: "auto"
+  fail-on-high:
+    description: "Fail the run when any high-severity finding is present (default 'true')."
+    required: false
+    default: "true"
+  github-token:
+    description: "Token used to post the PR comment (defaults to GITHUB_TOKEN)."
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  total-cards:
+    description: "Number of AgentCards analyzed."
+  high-findings:
+    description: "Count of high-severity findings."
+  autonomous-count:
+    description: "Number of autonomous agents in the fleet."
+  destructive-tools:
+    description: "Total destructive tools declared across the fleet."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

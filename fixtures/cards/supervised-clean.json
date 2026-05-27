@@ -1,0 +1,16 @@
+{
+  "agent_card_version": "0.1",
+  "agent": { "id": "research-assistant", "name": "Research Assistant", "version": "1.1.0", "provider": "kg", "description": "RAG over PDFs.", "homepage": "https://example.com" },
+  "capabilities": {
+    "primary_purpose": "QA over PDFs",
+    "models_used": [{ "model": "claude-sonnet-4" }],
+    "tools": [{ "name": "search", "side_effects": "read" }],
+    "max_context_tokens": 128000,
+    "memory_persistence": "session",
+    "autonomy_level": "supervised"
+  },
+  "refusal_taxonomy": [{ "category": "legal-advice", "behavior": "refuse_and_explain" }],
+  "evaluations": [{ "suite": "ragas", "result_uri": "https://x/", "ran_at": "2026-05-20T00:00:00Z", "passed": true }],
+  "deployment": { "environment": "production" },
+  "safety_posture": { "incident_response_uri": "https://x/incidents" }
+}
