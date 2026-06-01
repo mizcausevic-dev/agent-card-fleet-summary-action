@@ -1,5 +1,5 @@
 name: "Agent Card Fleet Summary"
-description: "Walk a directory of A2A AgentCards, count by autonomy / memory, surface governance gaps (autonomous-without-IRU, destructive-tool-on-non-autonomous, persistent-memory-without-refusal-taxonomy, etc.), post a Markdown summary as a PR comment, and fail the build when high-severity findings exist."
+description: "Walk a directory of A2A AgentCards, surface governance gaps, post summary on PR, fail on high-severity findings."
 author: "mizcausevic-dev"
 branding:
   icon: "shield"
